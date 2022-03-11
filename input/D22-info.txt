@@ -1,0 +1,1 @@
+@Ryan, I seen that your balance amt is at the last line of the file, you can use this statement:File.ReadAllLines(FilePath).Last() to get the amount

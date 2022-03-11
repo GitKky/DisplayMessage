@@ -1,0 +1,18 @@
+Demonstrate how to extract text from a pdf file using the Read PDF Text activity and store in a Notepad file.
+
+First download a whitepaper from UiPath Website. Go to “https://www.uipath.com/resources/automation-whitepapers” and click on the first link. Fill the form with your details to download the PDF file. Enter name, email, company name, phone number, country, job level, and field of expertise. Now, hit Submit.
+Check your email and download the PDF file received. 
+Go to UiPath Studio and click on the Manage Packages button in the Design ribbon. In the popup window, navigate to All Packages.
+Search for UiPath.PDF.Activities and click the first result. In the right panel, click Install and Save. Wait for few seconds till the dependencies are installed.
+Drag and drop a Read PDF Text activity in the designer panel. Click the Folder icon and select the downloaded PDF file. Go to the Properties panel of the Read PDF Text activity, and in the Output property, press Ctrl+K and insert a new variable called Content.
+Insert a Write Text File activity and insert it below the Read PDF Text activity. Enter the variable Content in the first input box, and “ScrapedText.txt” in the second input box.
+Save and run the workflow.
+Go to the folder where the Notepad is saved and open it.
+
+  27
+
+
+https://www.uipath.com/resources/automation-whitepapers
+
+Outcome
+All the text from the PDF file is stored here.

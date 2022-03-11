@@ -1,0 +1,22 @@
+Demonstrate how to extract From, Subject, and Body of emails using the Get IMAP Mail Messages activity and store it in a CSV file 
+
+Insert a Build Data Table in the designer panel. Click on the Data Table button within the activity. In the pop up window, create three columns with headers as Subject with Data Type as String, From with Data Type as String, and Body with Data Type as String. Go to the Properties panel of this activity and in the DataTable property, hit Ctrl+K and enter a new variable called dt_GetMails.
+Insert a Get IMAP Mail Messages activity in the designer panel. Go to its Properties panel. In the MailFolder property, enter “Inbox”. In the Port property, enter 993. In the Server property enter “imap.gmail.com”. In the Email property, enter your email address in double quotes and in the Password property, enter your password in double quotes. Ensure that the OnlyUnreadMessages property is unchecked. It will fetch all emails regardless of their Read status. In the Top property, enter 5. In the Messages property, hit Ctrl+K and enter a variable newMessages.
+If using Gmail username and password, then allow Google Account for less secure apps and devices. Do this by visiting the Security tab under your Google Account page.
+Insert a For Each activity below the Get IMAP Mail Messages activity. Replace the text “item” from the first text box with “mail”, and in the adjacent text box enter the variable newMessages. 
+Go to the Properties panel of the For Each activity and click the drop down of TypeArgument property and select “Browse for Types”. In the pop up window, browse for MailMessage type. You can notice that there are two results shown. First is under System.Net.Mail and the second is under System.Web.Mail. Pick the first one. 
+Insert an Assign activity in the Body section of the For Each activity. In the first text box, hit Ctrl+K and enter a new variable called Subject. In the adjacent box enter the expression: mail.Subject.
+Insert a second Assign activity below the previous Assign activity. In the first text box, hit Ctrl+K and enter a new variable called From. In the adjacent box enter the expression: mail.from.ToString.
+Insert a third Assign activity below the second Assign activity. 
+
+
+In the first text box, hit Ctrl+K and enter a new variable called Body. In the adjacent box enter the expression: mail.Body
+Insert an Add Data Row activity below the third Assign activity. Go to its properties panel, and in the ArrayRow property, enter the expression: {Subject,From,Body}. Also, in the DataTable property, enter the variable dt_GetMails.
+Insert a Write CSV activity after the For Each activity. In the first text box enter a new CSV file name called “FreshMails.csv” and in the second text box enter the data table variable dt_GetMails.
+
+I have "Get IMAP Mail Messages: LOGIN Invalid credentials" problem for yahoo and gmail regardless of using credential or direct. I tried Yahoo mail and I can logout and login using the same password.
+
+Save and run the workflow.
+Open the CSV file FreshMails.csv
+Outcome:
+All the emails are stored in separate columns under Subject, From, and Body.

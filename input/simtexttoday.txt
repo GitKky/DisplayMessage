@@ -1,0 +1,10 @@
+File_Henry_1002.txt- Notepad
+
+File_{{selectedEmployee}}_100*.txt- Notepad
+
+
+<ctrl automationid='MenuBar' idx='1' name='Application' role='menu bar' />
+<ctrl name='Format' role='menu item' />
+
+<ctrl automationid='MenuBar' idx='1' name='Application' role='menu bar' />
+<ctrl name='Format' role='menu item' />

@@ -1,0 +1,13 @@
+Demonstrate how to scrape text from a UiPath blog post using Screen Scraping wizard and store it in a Notepad File.
+
+Open a blog post on UiPath Website.
+Go to UiPath Studio, and click the Screen Scraping button from the Design ribbon. Indicate the text you want to copy from the UiPath blog page. 
+In the Screen Scraper Wizard, switch between different scraping methods.
+Choose each one by one to see their results in the preview area. Click the Scraping Method drop down and select Native. Click the Refresh button and see the preview.
+Again click the Scraping Method drop down and select OCR and click the Refresh button. The output of OCR is in the paragraph style as seen on the website.
+Click the Scraping Method drop down and select Full Text and click the Refresh button and see the preview. 
+Drag and drop a Write Text File activity below the Screen Scraping container. In the Text box, enter the variable in which the scraped content is stored. In the Write to filename: box, enter the filename “ExtractedText.txt”. 
+Save and run the workflow. 
+Open the saved Notepad to see if the scraped content is stored
+Outcome:
+The content is stored in the file.
